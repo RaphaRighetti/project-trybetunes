@@ -3,6 +3,7 @@ import './styles/album.css';
 import { shape, string } from 'prop-types';
 import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
+import { addSong } from '../services/favoriteSongsAPI';
 import MusicCard from '../components/MusicCard';
 
 class Album extends React.Component {
@@ -12,18 +13,36 @@ class Album extends React.Component {
     this.state = {
       isLoading: true,
       musics: [],
+      showMusics: false,
+      isChecked: {},
     };
   }
 
   async componentDidMount() {
     const { match: { params: { id } } } = this.props;
     const musics = await getMusics(id);
-    this.setState({ musics, isLoading: false });
-    console.log(musics);
+    const isChecked = {};
+    musics.filter((_e, i) => i !== 0).forEach((element) => {
+      isChecked[element.trackId] = false;
+    });
+    this.setState({ musics, isLoading: false, showMusics: true, isChecked });
   }
 
+  handleCheckBox = async ({ target }) => {
+    this.setState({ isLoading: true, showMusics: false });
+    await addSong(target.value);
+    this.setState((prev) => ({
+      isLoading: false,
+      showMusics: true,
+      isChecked: {
+        ...prev.isChecked,
+        [target.name]: !prev.isChecked[target.name],
+      },
+    }));
+  };
+
   render() {
-    const { isLoading, musics } = this.state;
+    const { isLoading, musics, showMusics, isChecked } = this.state;
 
     const musicsSec = (
       musics.length > 0
@@ -45,7 +64,11 @@ class Album extends React.Component {
               </p>
               <p className="genreName">{musics[0].primaryGenreName}</p>
             </div>
-            <MusicCard musics={ musics } />
+            <MusicCard
+              musics={ musics }
+              handleCheckBox={ this.handleCheckBox }
+              isChecked={ isChecked }
+            />
           </>
         ));
 
@@ -54,7 +77,7 @@ class Album extends React.Component {
         <Header />
         <div data-testid="page-album" className="page-album">
           {isLoading && (<h1>Carregando...</h1>)}
-          {(musics.length > 0) && musicsSec}
+          {showMusics && musicsSec}
         </div>
       </>
     );
