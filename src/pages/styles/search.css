@@ -1,0 +1,69 @@
+.page-search {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.page-search h1 {
+  color: whitesmoke;
+  margin-bottom: 15px;
+  text-align: center;
+  width: 100%;
+}
+
+.page-search input {
+  background-color: rgb(23, 23, 23);
+  border: none;
+  border-bottom: 1px solid rgb(83, 83, 83);
+  color: whitesmoke;
+  font-size: 14px;
+  margin-right: 5px;
+  max-width: 400px;
+  min-width: 190px;
+  padding: 8px;
+  width: 40%;
+}
+
+.page-search input:focus {
+  background-color: rgb(23, 23, 23);
+  border-bottom: 1px solid whitesmoke;
+  outline: none;
+}
+
+.button-28 {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid rgb(41, 41, 41);
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: rgb(170, 170, 170);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  outline: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  user-select: none;
+
+}
+
+.button-28:disabled, .button-28:disabled:hover {
+  border: 2px solid rgb(29, 29, 29);
+  color: rgb(91, 91, 91);
+  cursor: not-allowed;
+}
+
+
+.button-28:enabled:hover {
+  background-color: rgb(41, 41, 41);
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.button-28:enabled:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
