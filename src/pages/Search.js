@@ -42,8 +42,17 @@ class Search extends React.Component {
     }));
   };
 
+  handleEnter = (event) => {
+    if (event.key === 'Enter' && !this.isDisabled()) {
+      this.handleClick();
+    }
+  };
+
   render() {
     const { searchInput, isLoading, showSearch, albuns, searchName } = this.state;
+    const FIFTY = 50;
+    const FIFTY_ONE = 51;
+    const HUNDRED_ONE = 101;
     const notFound = 'Nenhum álbum foi encontrado';
     const found = `Resultado de álbuns de: ${searchName}`;
     const albunsCard = (
@@ -61,8 +70,15 @@ class Search extends React.Component {
                 src={ element.artworkUrl100 }
                 alt={ element.collectionName }
               />
-              <p className="nomeAlbum">{element.collectionName}</p>
-              <p className="artist">{element.artistName}</p>
+              <p className="nomeAlbum">
+                {element.collectionName.length <= FIFTY_ONE
+                  ? element.collectionName
+                  : `${element.collectionName.substr(0, FIFTY)}...`}
+              </p>
+              <p className="artist">
+                {element.artistName.length <= HUNDRED_ONE
+                  ? element.artistName : `${element.artistName.substr(0, 100)}...`}
+              </p>
             </div>
           </Link>
         ))}
@@ -80,6 +96,7 @@ class Search extends React.Component {
             name="searchInput"
             value={ searchInput }
             onChange={ this.handleChange }
+            onKeyDown={ this.handleEnter }
             placeholder="Nome do artista"
           />
           <button

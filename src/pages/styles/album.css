@@ -1,0 +1,83 @@
+.page-album {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.page-album h1 {
+  text-align: center;
+  width: 100%;
+}
+
+.albumInfo {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+}
+
+.musics {
+  margin: 30px;
+}
+
+.albumInfo img {
+  margin-bottom: 10px;
+  width: 100px;
+}
+
+.albumInfo p {
+  max-width: 250px;
+}
+
+.albumName {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.artistName {
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.genreName {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.music p {
+  margin-bottom: 5px;
+  margin-top: 10px;
+  max-width: 400px;
+}
+
+hr {
+  margin-bottom: 40px;
+}
+
+.track {
+  align-items: center;
+  display: flex;
+  width: fit-content;
+}
+
+.favoriteIcon {
+  margin-left: 10px;
+  width: 0;
+}
+
+.favoriteIcon:after {
+  color: whitesmoke;
+  content: '\f004';
+  font-family: 'Font Awesome 6 Free' , monospace;
+  font-size: 18px;
+  font-weight: 400;
+  transition: 0.3s;
+}
+
+.favoriteIcon:checked:after {
+  color: rgb(255, 62, 104);
+  font-size: 18px;
+  font-weight: 600;
+  transition: 0.3s;
+}
