@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 50px;
 }
 
 .page-search h1 {
@@ -66,4 +67,74 @@
 .button-28:enabled:active {
   box-shadow: none;
   transform: translateY(0);
+}
+
+.albunsDiv {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.albunsDiv h2 {
+  text-align: center;
+  width: 100%;
+}
+
+.albunsDiv p {
+  margin-bottom: 30px;
+  margin-left: 30px;
+  width: 100%;
+}
+
+.albumCard {
+  align-items: center;
+  background-color: rgb(17, 17, 17);
+  border-radius: 15px;
+  box-shadow: 1px 1px 5px 1px black;
+  display: flex;
+  flex-direction: column;
+  height: 230px;
+  justify-content: center;
+  margin: 10px;
+  user-select: none;
+  width: 200px;
+}
+
+.albumCard img {
+  align-self: center;
+  height: 100px;
+  width: 100px;
+}
+
+.albumCard:hover {
+  background-color: rgb(11, 11, 11);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.albumCard:active {
+  box-shadow: inset 1px 1px 3px 1px black;
+  transform: translate(1px, 1px);
+  transition: 0.1s;
+}
+
+.albumCard p {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 10px;
+  width: fit-content;
+}
+
+.nomeAlbum {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.artist {
+  font-size: 11px;
+  font-weight: 300;
+}
+
+.albumLink {
+  color: inherit;
+  text-decoration: none;
 }
