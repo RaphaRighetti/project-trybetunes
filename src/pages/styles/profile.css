@@ -1,4 +1,4 @@
-.page-profile {
+.page-profile, .page-profile-edit {
   display: flex;
   justify-content: center;
 }
@@ -13,6 +13,14 @@
   flex-direction: column;
   margin: 0 10px 30px;
   max-width: 500px;
+}
+
+.profileEdit {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px 50px;
+  max-width: 500px;
+  width: 80vw;
 }
 
 .imgDiv {
@@ -52,4 +60,47 @@
 
 .profileLink:hover {
   color: rgb(0, 219, 201);
+}
+
+.profileEdit input {
+  background-color: rgb(23, 23, 23);
+  border: none;
+  border-bottom: 1px solid rgb(83, 83, 83);
+  color: whitesmoke;
+  font-size: 14px;
+  margin-right: 5px;
+  max-width: 500px;
+  min-width: 190px;
+  padding: 8px;
+  width: 90%;
+}
+
+.inputMargin {
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.inputImg {
+  margin-top: 10px;
+}
+
+.descriptionArea {
+  background-color: rgb(23, 23, 23);
+  border: none;
+  border-bottom: 1px solid rgb(83, 83, 83);
+  color: whitesmoke;
+  font-size: 14px;
+  height: 70px;
+  margin-right: 5px;
+  margin-top: 5px;
+  max-width: 500px;
+  min-width: 190px;
+  padding: 8px;
+  resize: none;
+  width: 90%;
+}
+
+.profilebtn {
+  margin-top: 30px;
+  width: 94%;
 }
