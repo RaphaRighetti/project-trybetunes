@@ -3,7 +3,7 @@ import './styles/album.css';
 import { shape, string } from 'prop-types';
 import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import MusicCard from '../components/MusicCard';
 
 class Album extends React.Component {
@@ -21,16 +21,26 @@ class Album extends React.Component {
   async componentDidMount() {
     const { match: { params: { id } } } = this.props;
     const musics = await getMusics(id);
+    const favoriteSongs = await getFavoriteSongs();
     const isChecked = {};
     musics.filter((_e, i) => i !== 0).forEach((element) => {
-      isChecked[element.trackId] = false;
+      isChecked[element.trackId] = favoriteSongs
+        .reduce(
+          (acc, curr) => (curr.trackId === element.trackId ? true : acc),
+          false,
+        );
     });
     this.setState({ musics, isLoading: false, showMusics: true, isChecked });
   }
 
   handleCheckBox = async ({ target }) => {
     this.setState({ isLoading: true, showMusics: false });
-    await addSong(target.value);
+    const { isChecked } = this.state;
+    if (isChecked[target.name]) {
+      await removeSong(JSON.parse(target.value));
+    } else {
+      await addSong(JSON.parse(target.value));
+    }
     this.setState((prev) => ({
       isLoading: false,
       showMusics: true,

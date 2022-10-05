@@ -35,7 +35,7 @@ class MusicCard extends React.Component {
                   id={ element.trackId }
                   onChange={ handleCheckBox }
                   checked={ isChecked[element.trackId] }
-                  value={ element }
+                  value={ JSON.stringify(element) }
                 />
               </label>
             </div>
