@@ -78,6 +78,7 @@ class Album extends React.Component {
               musics={ musics }
               handleCheckBox={ this.handleCheckBox }
               isChecked={ isChecked }
+              isFiltred={ 0 }
             />
           </>
         ));

@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 class MusicCard extends React.Component {
   render() {
-    const { musics, handleCheckBox, isChecked } = this.props;
+    const { musics, handleCheckBox, isChecked, isFiltred } = this.props;
 
     return (
       <div className="musics">
-        {musics.filter((_e, i) => i !== 0).map((element) => (
+        {musics.filter((_e, i) => i !== isFiltred).map((element) => (
           <div className="music" key={ element.trackId }>
             <div className="track">
               <audio
@@ -52,6 +52,7 @@ MusicCard.propTypes = {
   musics: PropTypes.arrayOf(PropTypes.shape({ trackName: PropTypes.string })).isRequired,
   handleCheckBox: PropTypes.func.isRequired,
   isChecked: PropTypes.shape({}).isRequired,
+  isFiltred: PropTypes.number.isRequired,
 };
 
 export default MusicCard;
