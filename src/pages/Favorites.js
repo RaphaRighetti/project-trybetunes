@@ -36,7 +36,7 @@ class Favorites extends React.Component {
     const musicsSec = ((musics.length > 0) && <MusicCard
       musics={ musics }
       isChecked={ isChecked }
-      isFilfred={ -1 }
+      isFiltred={ -1 }
       handleCheckBox={ this.handleCheckBox }
     />
     );

@@ -1,0 +1,55 @@
+.page-profile {
+  display: flex;
+  justify-content: center;
+}
+
+.loading {
+  text-align: center;
+  width: 100%;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px 30px;
+  max-width: 500px;
+}
+
+.imgDiv {
+  border-radius: 100%;
+  height: 150px;
+  width: 150px;
+}
+
+.imgDiv img {
+  border-radius: 100%;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.nomeLabel {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 30px;
+}
+
+.nomeValor {
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 5px;
+}
+
+.linkSec {
+  margin-top: 30px;
+}
+
+.profileLink {
+  color: #02a89a;
+  font-style: italic;
+  text-decoration: none;
+}
+
+.profileLink:hover {
+  color: rgb(0, 219, 201);
+}

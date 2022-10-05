@@ -79,6 +79,10 @@ hr {
   transition: 0.3s;
 }
 
+.favoriteIcon:hover:after {
+  cursor: pointer;
+}
+
 .favoriteIcon:checked:after {
   color: rgb(255, 62, 104);
   font-size: 18px;
